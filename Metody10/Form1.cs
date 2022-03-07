@@ -39,5 +39,28 @@ namespace Metody10
             MessageBox.Show("pocet slov ve vete " + pocetSlov1);
             MessageBox.Show("veta bez cislis " + b);
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string nejdesislovo, nejkratsislovo;
+            string a = textBox3.Text;
+            if (Cifry.obsahujeSlovo(a, nejkratsislovo, nejdesislovo)) ;
+            {
+                MessageBox.Show("obsahuje slovo");
+            }
+            else
+            {
+                MessageBox.Show("neobsahuje slovo");
+            }
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string a = textBox2.Text;
+            int pocetSlov1 = Cifry.pocetSlov2(ref a);
+            MessageBox.Show("pocet slov ve vete " + pocetSlov1);
+            MessageBox.Show("veta bez cislis " + a);
+        }
     }
 }

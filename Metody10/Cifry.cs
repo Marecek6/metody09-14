@@ -53,5 +53,50 @@ namespace Metody10
             bezcisel = retezec;
             return pocetSlov;
         }
+
+        public static int pocetSlov2(ref string retezec)
+        {
+            int pocetSlov = 0;
+            char[] separators = { ' ' };
+            string[] poleSlov = retezec.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+            pocetSlov = poleSlov.Length;
+            int i = 0;
+            while (i < retezec.Length)
+            {
+                if (Char.IsNumber(retezec[i]))
+                {
+                    retezec = retezec.Remove(i, 1);
+                }
+                else i++;
+            }
+            return pocetSlov;
+        }
+        public static bool obsahujeSlovo(string retezec, out string nejkratsiSlovo, out string nejdelsiSlovo)
+        {
+            bool obsahujeSlovo = false;
+            int pocetSlov = 0;
+            nejdelsiSlovo = "";
+            nejkratsiSlovo = "";
+            int max = int.MinValue, min = int.MaxValue;
+            char[] separators = { ' ' };
+            string[] poleSlov = retezec.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+            pocetSlov = poleSlov.Length;
+            if(pocetSlov >= 1)
+            {
+                obsahujeSlovo = true;
+            }
+            foreach(string s in poleSlov)
+            {
+                if(s.Length > max)
+                {
+                    nejdelsiSlovo = s;
+                }
+                if(s.Length < min)
+                {
+                    nejkratsiSlovo = s;
+                }
+            }
+            return obsahujeSlovo;
+        }
     }
 }
