@@ -34,5 +34,24 @@ namespace Metody10
 
             return obsahujeCif;
         }
+
+        public static int pocetSlov(string retezec, out string bezcisel)
+        {
+            int pocetSlov = 0;
+            char[] separators = {' '};
+            string[] poleSlov = retezec.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+            pocetSlov = poleSlov.Length;
+            int i = 0;
+            while (i < retezec.Length)
+            {
+                if (Char.IsNumber(retezec[i]))
+                {
+                    retezec = retezec.Remove(i, 1);
+                }
+                else i++;
+            }
+            bezcisel = retezec;
+            return pocetSlov;
+        }
     }
 }
