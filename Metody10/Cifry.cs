@@ -124,5 +124,43 @@ namespace Metody10
             }
             return jealfanum;
         }
+
+        public static bool identicke(string s1, string s2, out int pocetodlisnosti, out int indexodlisnosti)
+        {
+            bool jsouidenticke = false;
+            pocetodlisnosti = 0;
+            indexodlisnosti = -1;
+            if(s1==s2)
+            {
+                jsouidenticke = true;
+                pocetodlisnosti = 0;
+                indexodlisnosti = -1;
+            }
+            if(s1.Length > s2.Length)
+            {             
+                for(int i = 0; i < s2.Length; i++)
+                {
+                    if(s2[i] != s1[i])
+                    {
+                        pocetodlisnosti++;
+                        indexodlisnosti = i;
+                    }
+                }
+                pocetodlisnosti = pocetodlisnosti + (s1.Length - s2.Length);
+            }
+            else if(s1.Length < s2.Length)
+            {               
+                for(int i = 0; i < s1.Length; i++)
+                {
+                    if(s1[i] != s2[i])
+                    {
+                        pocetodlisnosti++;
+                        indexodlisnosti = i;
+                    }
+                }
+                pocetodlisnosti = pocetodlisnosti + (s1.Length - s2.Length);
+            }
+            return jsouidenticke;
+        }
     }
 }

@@ -84,5 +84,22 @@ namespace Metody10
                 MessageBox.Show("počet jiných " + pocetjinych);
             }
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            string s1 = textBox4.Text;
+            string s2 = textBox5.Text;
+            int pocetOdlisnosti, indexOdlisnosti;
+            if(Cifry.identicke(s1, s2, out pocetOdlisnosti, out indexOdlisnosti))
+            {
+                MessageBox.Show("jsou identické");
+            }
+            else
+            {
+                MessageBox.Show("nejsou identické");
+                MessageBox.Show("pocet odlisnosti " + pocetOdlisnosti);
+                MessageBox.Show("index odlisnosti " + indexOdlisnosti);
+            }
+        }
     }
 }
