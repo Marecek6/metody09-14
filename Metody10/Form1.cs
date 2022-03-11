@@ -44,9 +44,11 @@ namespace Metody10
         {
             string nejdesislovo, nejkratsislovo;
             string a = textBox3.Text;
-            if (Cifry.obsahujeSlovo(a, nejkratsislovo, nejdesislovo)) ;
+            if (Cifry.obsahujeSlovo(a, out nejkratsislovo, out nejdesislovo)) 
             {
                 MessageBox.Show("obsahuje slovo");
+                MessageBox.Show("nejdelsi slovo " + nejdesislovo);
+                MessageBox.Show("nejkratsi slovo " + nejkratsislovo);
             }
             else
             {
@@ -61,6 +63,26 @@ namespace Metody10
             int pocetSlov1 = Cifry.pocetSlov2(ref a);
             MessageBox.Show("pocet slov ve vete " + pocetSlov1);
             MessageBox.Show("veta bez cislis " + a);
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            string s = textBox8.Text;
+            int pocetvelkych, pocetmalych, pocetjinych;
+            if (Cifry.jeAlfanum(s, out pocetmalych, out pocetvelkych, out pocetjinych))
+            {
+                MessageBox.Show("je alfanumerický");
+                MessageBox.Show("počet malých: " + pocetmalych);
+                MessageBox.Show("počet velkých: " + pocetvelkych);
+                MessageBox.Show("počet jiných " + pocetjinych);
+            }
+            else
+            {
+                MessageBox.Show("není alfanumerický");
+                MessageBox.Show("počet malých: " + pocetmalych);
+                MessageBox.Show("počet velkých: " + pocetvelkych);
+                MessageBox.Show("počet jiných " + pocetjinych);
+            }
         }
     }
 }
